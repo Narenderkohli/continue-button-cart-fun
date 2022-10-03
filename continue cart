@@ -1,0 +1,38 @@
+ 
+ 
+ 
+ $( document ).ready(function() {
+     {% if template contains 'index' %}
+    $(".grid__item").click(function() {
+                          
+                  // alert('hii');
+        var className= $(".grid__item").attr('con');  // get the collection url 
+      
+
+     localStorage.setItem('active_show', className);   // set the  collection url on the localstorage
+       // var get_var =  localStorage.getItem('active_show');
+                  sessionStorage.clear()   //   clear sessionStorage value. 
+           
+         });   
+      {% endif %}
+      
+          if(Storage !== undefined) {
+                var defaultLink = localStorage.active_show;       // assign the collection url. 
+
+    {% if template contains 'collection' %}
+      sessionStorage.collection = "{{ collection.url }}";
+    {% endif %}
+
+    {% if template contains 'product' %} 
+       if( !sessionStorage.collection ) {
+        sessionStorage.collection = defaultLink;   // set the collection url sessionStorage .
+        
+      }
+      document.getElementById("continue-shopping").href = sessionStorage.collection; // get the collection url to the session storage.
+    {% endif %}
+
+                 
+    }
+     
+      
+              });
