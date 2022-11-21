@@ -1,6 +1,9 @@
+ ===================================================================================== 
+ button html
+ ===========================================================================================
+<a id="continue-shopping" href="" title="Continue shopping" class="btn"> Continue shopping</a>
  
- 
- 
+ ======================================================================================
  $( document ).ready(function() {
      {% if template contains 'index' %}
     $(".grid__item").click(function() {
